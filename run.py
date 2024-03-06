@@ -22,7 +22,7 @@ def main():
     parser = TodoListParser(stream)
 
 
-    tree = parser.task()
+    tree = parser.file_()
 
 
     interpreter = TodoListInterpreter()

@@ -10,14 +10,18 @@ else:
 
 def serializedATN():
     return [
-        4,1,10,29,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,1,0,1,0,1,0,1,0,1,1,1,
-        1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,3,1,3,0,
-        0,4,0,2,4,6,0,0,24,0,8,1,0,0,0,2,12,1,0,0,0,4,17,1,0,0,0,6,22,1,
-        0,0,0,8,9,5,1,0,0,9,10,5,7,0,0,10,11,5,2,0,0,11,1,1,0,0,0,12,13,
-        5,3,0,0,13,14,5,7,0,0,14,15,5,8,0,0,15,16,5,2,0,0,16,3,1,0,0,0,17,
-        18,5,4,0,0,18,19,5,7,0,0,19,20,5,9,0,0,20,21,5,2,0,0,21,5,1,0,0,
-        0,22,23,5,5,0,0,23,24,5,7,0,0,24,25,5,6,0,0,25,26,5,7,0,0,26,27,
-        5,2,0,0,27,7,1,0,0,0,0
+        4,1,10,41,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,1,0,1,0,1,0,1,
+        0,1,1,1,1,1,1,1,1,1,1,1,2,1,2,1,2,1,2,1,2,1,3,1,3,1,3,1,3,1,3,1,
+        3,1,4,1,4,1,4,1,4,4,4,35,8,4,11,4,12,4,36,1,4,1,4,1,4,0,0,5,0,2,
+        4,6,8,0,0,39,0,10,1,0,0,0,2,14,1,0,0,0,4,19,1,0,0,0,6,24,1,0,0,0,
+        8,34,1,0,0,0,10,11,5,1,0,0,11,12,5,7,0,0,12,13,5,2,0,0,13,1,1,0,
+        0,0,14,15,5,3,0,0,15,16,5,7,0,0,16,17,5,8,0,0,17,18,5,2,0,0,18,3,
+        1,0,0,0,19,20,5,4,0,0,20,21,5,7,0,0,21,22,5,9,0,0,22,23,5,2,0,0,
+        23,5,1,0,0,0,24,25,5,5,0,0,25,26,5,7,0,0,26,27,5,6,0,0,27,28,5,7,
+        0,0,28,29,5,2,0,0,29,7,1,0,0,0,30,35,3,0,0,0,31,35,3,2,1,0,32,35,
+        3,4,2,0,33,35,3,6,3,0,34,30,1,0,0,0,34,31,1,0,0,0,34,32,1,0,0,0,
+        34,33,1,0,0,0,35,36,1,0,0,0,36,34,1,0,0,0,36,37,1,0,0,0,37,38,1,
+        0,0,0,38,39,5,0,0,1,39,9,1,0,0,0,2,34,36
     ]
 
 class TodoListParser ( Parser ):
@@ -41,8 +45,9 @@ class TodoListParser ( Parser ):
     RULE_priority = 1
     RULE_deadline = 2
     RULE_dependency = 3
+    RULE_file = 4
 
-    ruleNames =  [ "task", "priority", "deadline", "dependency" ]
+    ruleNames =  [ "task", "priority", "deadline", "dependency", "file" ]
 
     EOF = Token.EOF
     T__0=1
@@ -95,11 +100,11 @@ class TodoListParser ( Parser ):
         self.enterRule(localctx, 0, self.RULE_task)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 8
-            self.match(TodoListParser.T__0)
-            self.state = 9
-            self.match(TodoListParser.STRING)
             self.state = 10
+            self.match(TodoListParser.T__0)
+            self.state = 11
+            self.match(TodoListParser.STRING)
+            self.state = 12
             self.match(TodoListParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -143,13 +148,13 @@ class TodoListParser ( Parser ):
         self.enterRule(localctx, 2, self.RULE_priority)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 12
-            self.match(TodoListParser.T__2)
-            self.state = 13
-            self.match(TodoListParser.STRING)
             self.state = 14
-            self.match(TodoListParser.NUMBER)
+            self.match(TodoListParser.T__2)
             self.state = 15
+            self.match(TodoListParser.STRING)
+            self.state = 16
+            self.match(TodoListParser.NUMBER)
+            self.state = 17
             self.match(TodoListParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -193,13 +198,13 @@ class TodoListParser ( Parser ):
         self.enterRule(localctx, 4, self.RULE_deadline)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 17
-            self.match(TodoListParser.T__3)
-            self.state = 18
-            self.match(TodoListParser.STRING)
             self.state = 19
-            self.match(TodoListParser.DATE)
+            self.match(TodoListParser.T__3)
             self.state = 20
+            self.match(TodoListParser.STRING)
+            self.state = 21
+            self.match(TodoListParser.DATE)
+            self.state = 22
             self.match(TodoListParser.T__1)
         except RecognitionException as re:
             localctx.exception = re
@@ -243,16 +248,118 @@ class TodoListParser ( Parser ):
         self.enterRule(localctx, 6, self.RULE_dependency)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 22
-            self.match(TodoListParser.T__4)
-            self.state = 23
-            self.match(TodoListParser.STRING)
             self.state = 24
-            self.match(TodoListParser.T__5)
+            self.match(TodoListParser.T__4)
             self.state = 25
             self.match(TodoListParser.STRING)
             self.state = 26
+            self.match(TodoListParser.T__5)
+            self.state = 27
+            self.match(TodoListParser.STRING)
+            self.state = 28
             self.match(TodoListParser.T__1)
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class FileContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def EOF(self):
+            return self.getToken(TodoListParser.EOF, 0)
+
+        def task(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(TodoListParser.TaskContext)
+            else:
+                return self.getTypedRuleContext(TodoListParser.TaskContext,i)
+
+
+        def priority(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(TodoListParser.PriorityContext)
+            else:
+                return self.getTypedRuleContext(TodoListParser.PriorityContext,i)
+
+
+        def deadline(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(TodoListParser.DeadlineContext)
+            else:
+                return self.getTypedRuleContext(TodoListParser.DeadlineContext,i)
+
+
+        def dependency(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(TodoListParser.DependencyContext)
+            else:
+                return self.getTypedRuleContext(TodoListParser.DependencyContext,i)
+
+
+        def getRuleIndex(self):
+            return TodoListParser.RULE_file
+
+        def enterRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "enterFile" ):
+                listener.enterFile(self)
+
+        def exitRule(self, listener:ParseTreeListener):
+            if hasattr( listener, "exitFile" ):
+                listener.exitFile(self)
+
+
+
+
+    def file_(self):
+
+        localctx = TodoListParser.FileContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_file)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 34 
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while True:
+                self.state = 34
+                self._errHandler.sync(self)
+                token = self._input.LA(1)
+                if token in [1]:
+                    self.state = 30
+                    self.task()
+                    pass
+                elif token in [3]:
+                    self.state = 31
+                    self.priority()
+                    pass
+                elif token in [4]:
+                    self.state = 32
+                    self.deadline()
+                    pass
+                elif token in [5]:
+                    self.state = 33
+                    self.dependency()
+                    pass
+                else:
+                    raise NoViableAltException(self)
+
+                self.state = 36 
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                if not ((((_la) & ~0x3f) == 0 and ((1 << _la) & 58) != 0)):
+                    break
+
+            self.state = 38
+            self.match(TodoListParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)

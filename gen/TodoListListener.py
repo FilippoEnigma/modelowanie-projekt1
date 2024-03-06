@@ -44,5 +44,14 @@ class TodoListListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by TodoListParser#file.
+    def enterFile(self, ctx:TodoListParser.FileContext):
+        pass
+
+    # Exit a parse tree produced by TodoListParser#file.
+    def exitFile(self, ctx:TodoListParser.FileContext):
+        pass
+
+
 
 del TodoListParser

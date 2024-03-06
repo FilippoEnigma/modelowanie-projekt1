@@ -5,7 +5,6 @@ from TodoListListener import TodoListListener
 from task_list import TaskList
 from task import Task
 
-
 class TodoListInterpreter(TodoListListener):
     def __init__(self):
         self.task_list = TaskList()
@@ -15,14 +14,18 @@ class TodoListInterpreter(TodoListListener):
         self.task_list.add_task(Task(name=task_name))
 
     def exitPriority(self, ctx:TodoListParser.PriorityContext):
-        task_name = ctx.STRING(0).getText().strip('"')
+        task_name = ctx.STRING().getText().strip('"')
         priority = int(ctx.NUMBER().getText())
         self.task_list.set_priority(task_name, priority)
 
-    def exitDeadline(self, ctx:TodoListParser.DeadlineContext):
+    def exitDeadline(self, ctx: TodoListParser.DeadlineContext):
         task_name = ctx.STRING().getText().strip('"')
-        deadline = ctx.DATE().getText()
-        self.task_list.set_deadline(task_name, deadline)
+        deadline_token = ctx.DATE()
+        if deadline_token is not None:
+            deadline = deadline_token.getText()
+            self.task_list.set_deadline(task_name, deadline)
+        else:
+            print(f"Error parsing deadline for task: {task_name}")
 
     def exitDependency(self, ctx:TodoListParser.DependencyContext):
         task_name = ctx.STRING(0).getText().strip('"')
