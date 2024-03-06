@@ -1,0 +1,5 @@
+task "Zakupy";
+priority "Zakupy" 1;
+deadline "Zakupy" 2023-12-31;
+task "Nauka ANTLR";
+depends "Nauka ANTLR" on "Zakupy";
