@@ -1,0 +1,74 @@
+task "Shopping";
+priority "Shopping" 1;
+deadline "Shopping" 2023-12-31;
+start "Shopping" 2023-12-01;
+duration "Shopping" 5;
+tag "Shopping" "groceries";
+status "Shopping" done;
+note "Shopping" "Remember to buy milk";
+resource "Shopping" "John" "Shopping Cart";
+
+task "Learn ANTLR";
+priority "Learn ANTLR" 2;
+start "Learn ANTLR" 2023-04-25;
+duration "Learn ANTLR" 10;
+tag "Learn ANTLR" "education";
+status "Learn ANTLR" todo;
+note "Learn ANTLR" "Check the documentation about visitors";
+resource "Learn ANTLR" "Sarah" "Computer";
+
+task "Walk the dog";
+priority "Walk the dog" 3;
+deadline "Walk the dog" 2023-04-20;
+start "Walk the dog" 2023-04-15;
+duration "Walk the dog" 1;
+tag "Walk the dog" "recreation";
+status "Walk the dog" in_progress;
+note "Walk the dog" "Take extra water with you";
+resource "Walk the dog" "Alice" "Leash";
+
+groupDeadline 2023-05-01 "Shopping" "Learn ANTLR";
+
+task "Plan vacation";
+priority "Plan vacation" 2;
+deadline "Plan vacation" 2023-08-15;
+start "Plan vacation" 2023-07-01;
+duration "Plan vacation" 15;
+tag "Plan vacation" "travel";
+status "Plan vacation" todo;
+note "Plan vacation" "Book flights and hotels";
+resource "Plan vacation" "Emma" "Credit Card";
+
+task "Write report";
+priority "Write report" 2;
+start "Write report" 2023-05-10;
+deadline "Write report" 2023-06-01;
+duration "Write report" 20;
+tag "Write report" "work";
+status "Write report" in_progress;
+note "Write report" "Summarize the project outcomes";
+resource "Write report" "Tom" "Laptop";
+
+task "Prepare presentation";
+priority "Prepare presentation" 3;
+deadline "Prepare presentation" 2023-05-20;
+start "Prepare presentation" 2023-05-12;
+duration "Prepare presentation" 5;
+dependency "Prepare presentation" on "Write report";
+tag "Prepare presentation" "work";
+status "Prepare presentation" todo;
+note "Prepare presentation" "Include latest project stats";
+resource "Prepare presentation" "Alice" "Projector";
+
+task "Update website";
+priority "Update website" 1;
+start "Update website" 2023-05-25;
+duration "Update website" 10;
+dependency "Update website" on "Prepare presentation";
+tag "Update website" "maintenance";
+status "Update website" todo;
+note "Update website" "Refresh the homepage and product pages";
+resource "Update website" "John" "Server Access";
+
+groupDeadline 2023-07-01 "Shopping" "Learn ANTLR" "Plan vacation";
+

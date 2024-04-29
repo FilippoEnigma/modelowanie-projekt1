@@ -1,0 +1,139 @@
+[
+    {
+        "name": "Shopping",
+        "priority": 1,
+        "deadline": "2023-07-01",
+        "start_date": "2023-12-01",
+        "duration": 5,
+        "dependencies": [],
+        "tags": [
+            "groceries"
+        ],
+        "status": "done",
+        "notes": [
+            "Remember to buy milk"
+        ],
+        "resources": [
+            "John",
+            "Shopping Cart"
+        ]
+    },
+    {
+        "name": "Learn ANTLR",
+        "priority": 2,
+        "deadline": "2023-07-01",
+        "start_date": "2023-04-25",
+        "duration": 10,
+        "dependencies": [],
+        "tags": [
+            "education"
+        ],
+        "status": "todo",
+        "notes": [
+            "Check the documentation about visitors"
+        ],
+        "resources": [
+            "Sarah",
+            "Computer"
+        ]
+    },
+    {
+        "name": "Walk the dog",
+        "priority": 3,
+        "deadline": "2023-04-20",
+        "start_date": "2023-04-15",
+        "duration": 1,
+        "dependencies": [],
+        "tags": [
+            "recreation"
+        ],
+        "status": "in_progress",
+        "notes": [
+            "Take extra water with you"
+        ],
+        "resources": [
+            "Alice",
+            "Leash"
+        ]
+    },
+    {
+        "name": "Plan vacation",
+        "priority": 2,
+        "deadline": "2023-07-01",
+        "start_date": "2023-07-01",
+        "duration": 15,
+        "dependencies": [],
+        "tags": [
+            "travel"
+        ],
+        "status": "todo",
+        "notes": [
+            "Book flights and hotels"
+        ],
+        "resources": [
+            "Emma",
+            "Credit Card"
+        ]
+    },
+    {
+        "name": "Write report",
+        "priority": 2,
+        "deadline": "2023-06-01",
+        "start_date": "2023-05-10",
+        "duration": 20,
+        "dependencies": [],
+        "tags": [
+            "work"
+        ],
+        "status": "in_progress",
+        "notes": [
+            "Summarize the project outcomes"
+        ],
+        "resources": [
+            "Tom",
+            "Laptop"
+        ]
+    },
+    {
+        "name": "Prepare presentation",
+        "priority": 3,
+        "deadline": "2023-05-20",
+        "start_date": "2023-05-12",
+        "duration": 5,
+        "dependencies": [
+            "Write report"
+        ],
+        "tags": [
+            "work"
+        ],
+        "status": "todo",
+        "notes": [
+            "Include latest project stats"
+        ],
+        "resources": [
+            "Alice",
+            "Projector"
+        ]
+    },
+    {
+        "name": "Update website",
+        "priority": 1,
+        "deadline": null,
+        "start_date": "2023-05-25",
+        "duration": 10,
+        "dependencies": [
+            "Prepare presentation"
+        ],
+        "tags": [
+            "maintenance"
+        ],
+        "status": "todo",
+        "notes": [
+            "Refresh the homepage and product pages"
+        ],
+        "resources": [
+            "John",
+            "Server Access"
+        ]
+    }
+]
