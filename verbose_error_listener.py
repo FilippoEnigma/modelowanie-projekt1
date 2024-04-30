@@ -17,7 +17,6 @@ class VerboseErrorListener(ErrorListener):
             print(error)
 
     def suggestFix(self, msg):
-        # Here you can add more suggested fixes based on analyzing the error messages
         if "mismatched input" in msg:
             return " Check if a token is missing or if there's a typo."
         elif "no viable alternative at input" in msg:
